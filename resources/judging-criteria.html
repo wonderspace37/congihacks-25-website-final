@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Judging Criteria - CogniHacks 2025</title>
+    <meta name="description" content="Complete judging criteria and evaluation guidelines for CogniHacks 2025 projects">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .resource-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .resource-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .resource-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .resource-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            line-height: 1.8;
+        }
+
+        .resource-content h2 {
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem 0;
+            padding-top: 2rem;
+            border-top: 2px solid #e5e7eb;
+        }
+
+        .resource-content h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .resource-content p {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .resource-content ul, .resource-content ol {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .resource-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-content code {
+            background: #f3f4f6;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #000000;
+        }
+
+        .resource-content pre {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .resource-content pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .warning-box h4 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .warning-box p {
+            color: #92400e;
+            margin: 0;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-box h4 {
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .info-box p {
+            color: #1e40af;
+            margin: 0;
+        }
+
+        .criteria-box {
+            background: #f0fdf4;
+            border: 1px solid #22c55e;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .criteria-box h4 {
+            color: #166534;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .criteria-box ul {
+            color: #166534;
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            background: #667eea;
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .resource-header h1 {
+                font-size: 2rem;
+            }
+            
+            .resource-content {
+                padding: 40px 20px;
+            }
+            
+            .back-button {
+                position: static;
+                display: inline-block;
+                margin-bottom: 2rem;
+                border-radius: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../assets/sponsors/cognihacks-logo.png" alt="CogniHacks Logo" />
+                <span class="logo-text">CogniHacks</span>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html#home" class="nav-link">Home</a>
+                <a href="../index.html#about" class="nav-link">About</a>
+                <a href="../index.html#sponsors" class="nav-link">Sponsors</a>
+                <a href="../index.html#tracks" class="nav-link">Tracks</a>
+                <a href="../index.html#schedule" class="nav-link">Schedule</a>
+                <a href="../index.html#faq" class="nav-link">FAQ</a>
+                <a href="../live.html" class="nav-link">Go Live</a>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Back Button -->
+    <a href="../live.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- Resource Header -->
+    <section class="resource-header">
+        <h1>Judging Criteria</h1>
+        <p>Complete breakdown of how your CogniHacks 2025 project will be evaluated</p>
+    </section>
+
+    <!-- Resource Content -->
+    <section class="resource-content">
+        <h2>Understanding the Judging Process</h2>
+        
+        <p>At CogniHacks 2025, your project will be evaluated by a panel of industry experts, researchers, and technology leaders. Understanding the judging criteria will help you focus your efforts on what matters most and increase your chances of success.</p>
+
+        <div class="info-box">
+            <h4><i class="fas fa-info-circle"></i> Judging Timeline</h4>
+            <p>Judging will take place from 6:45 PM to 7:45 PM. Each team will have 3-5 minutes to present their project, followed by a brief Q&A session with the judges.</p>
+        </div>
+
+        <h2>Primary Judging Criteria</h2>
+        
+        <p>The judging panel will evaluate your project across five key dimensions, each weighted differently to reflect their importance in the overall assessment:</p>
+
+        <div class="criteria-box">
+            <h4><i class="fas fa-lightbulb"></i> 1. Innovation & Creativity (25%)</h4>
+            <ul>
+                <li><strong>Originality:</strong> How unique and novel is your approach?</li>
+                <li><strong>Creative Problem Solving:</strong> Did you think outside the box?</li>
+                <li><strong>Concept Innovation:</strong> Is your idea pushing boundaries?</li>
+                <li><strong>Technical Innovation:</strong> Are you using technology in new ways?</li>
+            </ul>
+        </div>
+
+        <div class="criteria-box">
+            <h4><i class="fas fa-cogs"></i> 2. Technical Implementation (25%)</h4>
+            <ul>
+                <li><strong>Functionality:</strong> Does your project work as intended?</li>
+                <li><strong>Code Quality:</strong> Is your implementation clean and efficient?</li>
+                <li><strong>Technical Complexity:</strong> Did you tackle challenging problems?</li>
+                <li><strong>Integration:</strong> How well do different components work together?</li>
+            </ul>
+        </div>
+
+        <div class="criteria-box">
+            <h4><i class="fas fa-users"></i> 3. Impact & Practical Value (20%)</h4>
+            <ul>
+                <li><strong>Real-world Application:</strong> Does it solve a genuine problem?</li>
+                <li><strong>User Experience:</strong> Is it intuitive and user-friendly?</li>
+                <li><strong>Scalability:</strong> Can it grow beyond the hackathon?</li>
+                <li><strong>Market Potential:</strong> Is there commercial viability?</li>
+            </ul>
+        </div>
+
+        <div class="criteria-box">
+            <h4><i class="fas fa-chart-line"></i> 4. Execution & Polish (15%)</h4>
+            <ul>
+                <li><strong>Completeness:</strong> How finished is your project?</li>
+                <li><strong>Quality:</strong> Attention to detail and refinement</li>
+                <li><strong>Documentation:</strong> Clear explanation of functionality</li>
+                <li><strong>Demo Quality:</strong> How well does your presentation work?</li>
+            </ul>
+        </div>
+
+        <div class="criteria-box">
+            <h4><i class="fas fa-presentation"></i> 5. Presentation & Communication (15%)</h4>
+            <ul>
+                <li><strong>Clarity:</strong> Can judges understand your project?</li>
+                <li><strong>Storytelling:</strong> Compelling narrative about your solution</li>
+                <li><strong>Technical Explanation:</strong> Clear technical details</li>
+                <li><strong>Q&A Performance:</strong> How well you handle questions</li>
+            </ul>
+        </div>
+
+        
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>CogniHacks</span>
+                    </div>
+                    <p>Building the future of brain-computer interfaces through innovation, collaboration, and cutting-edge technology.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#tracks">Tracks</a></li>
+                        <li><a href="#schedule">Schedule</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> info@cognihacks.com</li>
+                    
+                        <li><i class="fas fa-map-marker-alt"></i> Pleasanton, CA</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://discord.gg/8YpqtHzU" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="https://www.linkedin.com/company/cognihacks/?viewAsMember=true" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/cognihacks/" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 CogniHacks. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
+                this.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

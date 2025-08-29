@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCI Setup Guide - CogniHacks 2025</title>
+    <meta name="description" content="Complete guide to setting up and using Emotiv headsets for CogniHacks 2025 BCI Track">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .resource-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .resource-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .resource-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .resource-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            line-height: 1.8;
+        }
+
+        .resource-content h2 {
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem 0;
+            padding-top: 2rem;
+            border-top: 2px solid #e5e7eb;
+        }
+
+        .resource-content h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .resource-content p {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .resource-content ul, .resource-content ol {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .resource-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-content code {
+            background: #f3f4f6;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #000000;
+        }
+
+        .resource-content pre {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .resource-content pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .warning-box h4 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .warning-box p {
+            color: #92400e;
+            margin: 0;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-box h4 {
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .info-box p {
+            color: #1e40af;
+            margin: 0;
+        }
+
+        .step-box {
+            background: #f0fdf4;
+            border: 1px solid #22c55e;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .step-box h4 {
+            color: #166534;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .step-box ol {
+            color: #166534;
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            background: #667eea;
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .resource-header h1 {
+                font-size: 2rem;
+            }
+            
+            .resource-content {
+                padding: 40px 20px;
+            }
+            
+            .back-button {
+                position: static;
+                display: inline-block;
+                margin-bottom: 2rem;
+                border-radius: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../assets/sponsors/cognihacks-logo.png" alt="CogniHacks Logo" />
+                <span class="logo-text">CogniHacks</span>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html#home" class="nav-link">Home</a>
+                <a href="../index.html#about" class="nav-link">About</a>
+                <a href="../index.html#sponsors" class="nav-link">Sponsors</a>
+                <a href="../index.html#tracks" class="nav-link">Tracks</a>
+                <a href="../index.html#schedule" class="nav-link">Schedule</a>
+                <a href="../index.html#faq" class="nav-link">FAQ</a>
+                <a href="../live.html" class="nav-link">Go Live</a>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Back Button -->
+    <a href="../live.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- Resource Header -->
+    <section class="resource-header">
+        <h1>BCI Setup Guide</h1>
+        <p>Complete guide to setting up and using Emotiv headsets for the CogniHacks 2025 BCI Track</p>
+    </section>
+
+    <!-- Resource Content -->
+    <section class="resource-content">
+        <h2>Getting Started with Emotiv BCI Hardware</h2>
+        
+        <p>Welcome to the Brain-Computer Interface (BCI) Track! This guide will walk you through everything you need to know about setting up and using the Emotiv hardware provided during CogniHacks 2025.</p>
+
+        <div class="info-box">
+            <h4><i class="fas fa-info-circle"></i> What You'll Receive</h4>
+            <p>Each BCI team will be provided with: Emotiv Insights headset, Mn8 headphones, Emotiv Pro software licenses, and technical support throughout the event.</p>
+        </div>
+
+        <h2>Hardware Overview</h2>
+        
+        <h3>Emotiv Insights Headset</h3>
+        <p>The Emotiv Insights is a wireless, high-fidelity EEG headset designed for research and development. It features 14 EEG channels plus 2 reference channels, providing excellent signal quality for BCI applications.</p>
+        
+        <h3>Mn8 Headphones</h3>
+        <p>These bone-conduction headphones allow you to hear audio feedback without blocking your ears, maintaining comfort during extended wear periods.</p>
+
+        <h2>Software Setup</h2>
+        
+        <div class="step-box">
+            <h4><i class="fas fa-download"></i> Step 1: Software Installation</h4>
+            <ol>
+                <li>Download Emotiv Pro from the official website</li>
+                <li>Install the software on your development machine</li>
+                <li>Install the Emotiv SDK for your preferred programming language</li>
+                <li>Verify the installation with a test connection</li>
+            </ol>
+        </div>
+
+        <h3>Supported Platforms</h3>
+        <ul>
+            <li><strong>Windows:</strong> Windows 10/11 (64-bit)</li>
+            <li><strong>macOS:</strong> macOS 10.15 or later</li>
+            <li><strong>Linux:</strong> Ubuntu 18.04+ (with specific dependencies)</li>
+        </ul>
+
+        <h2>Hardware Setup Process</h2>
+        
+        <h3>Headset Preparation</h3>
+        <p>Before first use, ensure the headset is fully charged. The LED indicator should show green when fully charged. Clean the sensors with the provided saline solution for optimal conductivity.</p>
+
+        <h3>Proper Placement</h3>
+        <p>Correct placement is crucial for signal quality. The headset should sit comfortably on your head with all sensors making good contact with your scalp. The reference sensors should be positioned behind your ears.</p>
+
+        <div class="warning-box">
+            <h4><i class="fas fa-exclamation-triangle"></i> Important Safety Note</h4>
+            <p>Never modify the hardware in any way. These are loaner devices and any damage will result in replacement costs. If you encounter issues, contact an organizer immediately.</p>
+        </div>
+
+        <h2>Calibration and Training</h2>
+        
+        <h3>Initial Calibration</h3>
+        <p>The Emotiv software includes built-in calibration procedures. Follow these steps:</p>
+        <ol>
+            <li>Ensure stable headset placement</li>
+            <li>Run the signal quality check</li>
+            <li>Complete the mental commands training</li>
+            <li>Verify signal strength across all channels</li>
+        </ol>
+
+        <h3>Mental Commands Training</h3>
+        <p>Train the system to recognize your specific mental patterns:</p>
+        <ul>
+            <li><strong>Push:</strong> Imagine pushing an object away from you</li>
+            <li><strong>Pull:</strong> Imagine pulling an object toward you</li>
+            <li><strong>Left:</strong> Imagine moving an object to your left</li>
+            <li><strong>Right:</strong> Imagine moving an object to your right</li>
+            <li><strong>Lift:</strong> Imagine lifting an object</li>
+            <li><strong>Drop:</strong> Imagine dropping an object</li>
+        </ul>
+
+        <h2>Development Integration</h2>
+        
+        <h3>SDK Installation</h3>
+        <p>Install the appropriate SDK for your development environment:</p>
+        
+        <h4>Python SDK</h4>
+        <pre><code>pip install emotiv
+# or
+pip install git+https://github.com/Emotiv/emotiv_python_sdk.git</code></pre>
+
+        <h4>JavaScript/Node.js SDK</h4>
+        <pre><code>npm install emotiv
+# or
+yarn add emotiv</code></pre>
+
+        <h4>C++ SDK</h4>
+        <p>Download the C++ SDK from the Emotiv developer portal and follow the platform-specific installation instructions.</p>
+
+        <h3>Basic Connection Example</h3>
+        <p>Here's a simple Python example to get you started:</p>
+        
+        <pre><code>import emotiv
+import time
+
+# Initialize the Emotiv headset
+headset = emotiv.Emotiv()
+
+# Connect to the headset
+if headset.connect():
+    print("Connected to Emotiv headset")
+    
+    # Start collecting data
+    headset.start()
+    
+    try:
+        while True:
+            # Get the latest data
+            data = headset.get_data()
+            if data:
+                print(f"EEG Data: {data}")
+            time.sleep(0.1)
+    except KeyboardInterrupt:
+        print("Stopping data collection...")
+        headset.stop()
+        headset.disconnect()
+else:
+    print("Failed to connect to headset")</code></pre>
+
+        <h2>Signal Quality Optimization</h2>
+        
+        <h3>Environmental Factors</h3>
+        <ul>
+            <li>Minimize electrical interference from nearby devices</li>
+            <li>Ensure stable lighting conditions</li>
+            <li>Avoid movement during critical measurements</li>
+            <li>Maintain consistent room temperature</li>
+        </ul>
+
+        <h3>User Preparation</h3>
+        <ul>
+            <li>Get adequate rest before the session</li>
+            <li>Avoid caffeine and stimulants</li>
+            <li>Stay hydrated throughout the session</li>
+            <li>Take regular breaks to maintain focus</li>
+        </ul>
+
+        <h2>Troubleshooting Common Issues</h2>
+        
+        <h3>Connection Problems</h3>
+        <p>If the headset won't connect:</p>
+        <ol>
+            <li>Check battery level and charge if necessary</li>
+            <li>Restart the Emotiv software</li>
+            <li>Verify Bluetooth connectivity</li>
+            <li>Check for software updates</li>
+        </ol>
+
+        <h3>Poor Signal Quality</h3>
+        <p>For weak or noisy signals:</p>
+        <ol>
+            <li>Reapply saline solution to sensors</li>
+            <li>Adjust headset placement</li>
+            <li>Check for hair interference</li>
+            <li>Ensure sensors are clean and undamaged</li>
+        </ol>
+        <div class="warning-box">
+            <h4><i class="fas fa-clock"></i> Time Management</h4>
+            <p>BCI projects demand more setup than traditional software. Allocate dedicated time and team members for headset setup and calibration while others focus on application development. Parallel progress is essential for success in this track given the heavier workload.</p>
+        </div>
+        <h2>Best Practices for Hackathon Development</h2>
+        
+        <h3>Project Planning</h3>
+        <ul>
+            <li>Start with simple mental commands before complex patterns</li>
+            <li>Test your setup early and often</li>
+            <li>Have backup plans for hardware issues</li>
+            <li>Document your calibration settings</li>
+        </ul>
+
+        <h3>Data Collection</h3>
+        <ul>
+            <li>Collect baseline data for each user</li>
+            <li>Implement real-time signal processing</li>
+            <li>Store data securely and efficiently</li>
+            <li>Include error handling for connection drops</li>
+        </ul>
+
+        <h2>Advanced Features</h2>
+        
+        <h3>Mental Commands</h3>
+        <p>Beyond basic commands, you can train custom mental patterns:</p>
+        <ul>
+            <li>Emotional states (excitement, calm, focus)</li>
+            <li>Mental imagery (visualization, spatial awareness)</li>
+            <li>Attention and meditation states</li>
+            <li>Creative thinking patterns</li>
+        </ul>
+
+        <h3>Real-time Processing</h3>
+        <p>Implement real-time signal processing for responsive applications:</p>
+        <ul>
+            <li>Signal filtering and noise reduction</li>
+            <li>Feature extraction (alpha, beta, theta waves)</li>
+            <li>Pattern recognition and classification</li>
+            <li>Adaptive threshold adjustment</li>
+        </ul>
+
+        <h2>Support and Resources</h2>
+        
+        <p>During CogniHacks 2025, you'll have access to:</p>
+        <ul>
+            <li><strong>Technical Support:</strong> Dedicated BCI experts available throughout the event</li>
+            <li><strong>Training Sessions:</strong> Scheduled at 9:45 AM on event day</li>
+            <li><strong>Documentation:</strong> Comprehensive SDK guides and API references</li>
+            <li><strong>Community:</strong> Connect with other BCI developers and researchers</li>
+        </ul>
+
+        <div class="info-box">
+            <h4><i class="fas fa-lightbulb"></i> Pro Tips</h4>
+            <p>Practice with the hardware before the hackathon if possible. Familiarity with the setup process will save valuable development time during the event.</p>
+        </div>
+
+        <h2>Next Steps</h2>
+        
+        <p>Now that you understand the setup process:</p>
+        <ol>
+            <li>Review the Emotiv SDK documentation for your preferred language</li>
+            <li>Plan your project architecture with BCI integration in mind</li>
+            <li>Prepare your development environment</li>
+            <li>Join the Discord server for real-time support</li>
+            <li>Attend the training session at 9:45 AM</li>
+        </ol>
+
+        <p>Remember, the BCI track is about innovation and pushing the boundaries of what's possible. Don't be afraid to experiment and think outside the box!</p>
+
+        
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>CogniHacks</span>
+                    </div>
+                    <p>Building the future of brain-computer interfaces through innovation, collaboration, and cutting-edge technology.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#tracks">Tracks</a></li>
+                        <li><a href="#schedule">Schedule</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> info@cognihacks.com</li>
+                    
+                        <li><i class="fas fa-map-marker-alt"></i> Pleasanton, CA</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://discord.gg/8YpqtHzU" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="https://www.linkedin.com/company/cognihacks/?viewAsMember=true" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/cognihacks/" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 CogniHacks. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
+                document.getElementById('navToggle').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
