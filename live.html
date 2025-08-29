@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CogniHacks 2025 - Live Hub</title>
+    <meta name="description"   content="CogniHacks 2025 Live Hub - Everything you need for the hackathon, all in one place">
+    <meta name="keywords" content="hackathon, neurotechnology, BCI, AI, brain-computer interface, live">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .live-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .live-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .live-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .live-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .live-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .live-status {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .live-status i {
+            color: #4ade80;
+            margin-right: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .tracks-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .track-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .track-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .track-item:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .track-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .track-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .track-header i {
+            transition: transform 0.3s ease;
+        }
+
+        .track-item.active .track-header i {
+            transform: rotate(180deg);
+        }
+
+        .track-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .track-item.active .track-content {
+            max-height: 1000px;
+        }
+
+        .track-details {
+            padding: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .track-overview {
+            margin-bottom: 1.5rem;
+        }
+
+        .track-overview h4 {
+            color: #374151;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .track-overview p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .track-rules {
+            margin-bottom: 1.5rem;
+        }
+
+        .track-rules h4 {
+            color: #374151;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .track-rules ul {
+            color: #6b7280;
+            padding-left: 1.5rem;
+        }
+
+        .track-rules li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .track-special {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .track-special h4 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .track-special p {
+            color: #92400e;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .resources-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .resource-card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+            border-color: #667eea;
+        }
+
+        .resource-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .resource-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .resource-card h3 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .resource-card p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .resource-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .resource-link:hover {
+            color: #5a67d8;
+        }
+
+        .quick-links-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .quick-link-card {
+            position: relative;
+            height: 180px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .quick-link-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .quick-link-card.flipped .quick-link-inner {
+            transform: rotateY(180deg);
+        }
+
+        .quick-link-front, .quick-link-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .quick-link-front {
+            background: white;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quick-link-back {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .quick-link-card:hover .quick-link-front {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .quick-link-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.2rem;
+        }
+
+        .quick-link-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .quick-link-card h3 {
+            color: #1f2937;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .quick-link-card p {
+            color: #6b7280;
+            line-height: 1.4;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .quick-link-back h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .quick-link-back p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+        }
+
+        .quick-link-back ul {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            padding-left: 1.5rem;
+            text-align: left;
+        }
+
+        .quick-link-back li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .quick-link-back strong {
+            color: white;
+        }
+
+        .discord-link {
+            display: inline-block;
+            background: #5865f2;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .discord-link:hover {
+            background: #4752c4;
+        }
+
+        .flip-instruction {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.1);
+            color: #6b7280;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        .help-section {
+            padding: 60px 0;
+            background: #f0f9ff;
+            border-top: 1px solid #bae6fd;
+        }
+
+        .help-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .help-content h2 {
+            color: #0369a1;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .help-content p {
+            color: #0c4a6e;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .help-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .help-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .help-item i {
+            color: #0369a1;
+            font-size: 1.2rem;
+        }
+
+        .help-item span {
+            color: #0c4a6e;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .live-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .live-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .quick-links-grid {
+                grid-template-columns: 1fr;
+                margin: 0 1rem;
+            }
+            
+            .help-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="./assets/sponsors/cognihacks-logo.png" alt="CogniHacks Logo" />
+                <span class="logo-text">CogniHacks</span>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#sponsors" class="nav-link">Sponsors</a>
+                <a href="index.html#tracks" class="nav-link">Tracks</a>
+                <a href="index.html#schedule" class="nav-link">Schedule</a>
+                <a href="index.html#faq" class="nav-link">FAQ</a>
+                <a href="live.html" class="nav-link active">Go Live</a>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Live Hero Section -->
+    <section class="live-hero">
+        <div class="live-hero-content">
+            <div class="live-status">
+                <i class="fas fa-circle"></i>
+                <span>LIVE Soon</span>
+            </div>
+            <h1>CogniHacks 2025 – Live Hub 🚀</h1>
+            <p>Everything you need for the hackathon, all in one place.</p>
+        </div>
+    </section>
+
+    <!-- Tracks Section -->
+    <section class="tracks-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Track Details</h2>
+                <p class="section-subtitle">Everything you need to know about your chosen track</p>
+            </div>
+            
+            <div class="track-accordion">
+                <!-- BCI Track -->
+                <div class="track-item" onclick="toggleTrack(this)">
+                    <div class="track-header">
+                        <h3><i class="fas fa-brain"></i> BCI & Human Enhancement Track</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="track-content">
+                        <div class="track-details">
+                            <div class="track-overview">
+                                <h4>Prompt</h4>
+                                <p>Coming Soon!</p>
+                            </div>
+                            
+                            <div class="track-rules">
+                                <h4>Rules & Requirements</h4>
+                                <ul>
+                                    <li>Minimum team size: 5 members</li>
+                                    <li>Must use provided Emotiv hardware (Insights/Mn8 & Pro Licenses)</li>
+                                    <li>No hardware modifications allowed</li>
+                                    <li>Projects must demonstrate real-time BCI functionality</li>
+                                    <li>Focus on practical applications and user experience</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="track-special">
+                                <h4>Special Notes</h4>
+                                <p><strong>Hardware Access:</strong> Each team will receive Emotiv Insights headsets, Mn8 headphones, and Emotiv Pro software licenses. Training sessions will be provided at 9:45 AM.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GenAI Track -->
+                <div class="track-item" onclick="toggleTrack(this)">
+                    <div class="track-header">
+                        <h3><i class="fas fa-robot"></i> GenAI for Humans Track</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="track-content">
+                        <div class="track-details">
+                            <div class="track-overview">
+                                <h4>Prompt</h4>
+                                <p>Coming Soon!</p>
+                            </div>
+                            
+                            <div class="track-rules">
+                                <h4>Rules & Requirements</h4>
+                                <ul>
+                                    <li>Team size: 2-6 members</li>
+                                    <li>Must integrate at least one AI/ML service or API</li>
+                                    <li>Projects should solve real human problems</li>
+                                    <li>Focus on user experience and accessibility</li>
+                                    <li>Can use any programming language or framework</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="track-special">
+                                <h4>Special Notes</h4>
+                                <p><strong>API Access:</strong> OpenAI API keys will be provided. Demo project will be showcased at 9:45 AM. Hacking starts at 10:00 AM.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Resources & Documentation</h2>
+                <p class="section-subtitle">All the tools and guides you need to succeed</p>
+            </div>
+            
+            <div class="resources-grid">
+                <div class="resource-card" onclick="openResource('bci-setup')">
+                    <div class="resource-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>BCI Setup Guide</h3>
+                    <p>Complete guide to setting up and using Emotiv headsets, including software installation, calibration, and basic operations.</p>
+                    <div class="resource-link">
+                        <span>Read Guide</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="resource-card" onclick="goToLink('https://emotiv.gitbook.io/emotivbci-node-red-toolbox')">
+                    <div class="resource-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Node Red Documentation</h3>
+                    <p>Comprehensive API reference, code examples, and integration guides for the Emotiv-BCI Node-RED Toolbox.</p>
+                    <div class="resource-link">
+                        <span>View Docs</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="resource-card" onclick="openResource('openai-api')">
+                    <div class="resource-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>OpenAI API Guide</h3>
+                    <p>Getting started with OpenAI APIs, best practices, rate limits, and example implementations for your GenAI projects.</p>
+                    <div class="resource-link">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                
+
+                <div class="resource-card" onclick="openResource('judging-criteria')">
+                    <div class="resource-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Judging Criteria</h3>
+                    <p>Detailed breakdown of how projects will be evaluated, including scoring rubrics and what judges are looking for.</p>
+                    <div class="resource-link">
+                        <span>View Criteria</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="resource-card" onclick="goToLink('https://cognihacks.devpost.com/')">
+                    <div class="resource-icon">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <h3>Submissions</h3>
+                    <p>Step-by-step instructions for submitting your project on Devpost</p>
+                    <div class="resource-link">
+                        <span>Read Guide</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section class="quick-links-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Quick Access</h2>
+                <p class="section-subtitle">Essential links and resources for the event</p>
+            </div>
+            
+            <div class="quick-links-grid">
+                <div class="quick-link-card" onclick="toggleQuickLink(this)">
+                    <div class="quick-link-inner">
+                        <div class="quick-link-front">
+                            <div class="quick-link-icon">
+                                <i class="fab fa-discord"></i>
+                            </div>
+                            <h3>Discord Server</h3>
+                            <p>Announcements & Updates</p>
+                            <div class="flip-instruction">Click to flip</div>
+                        </div>
+                        <div class="quick-link-back">
+                            <h3>Discord Server</h3>
+                            <p>Join for team chat, support, and updates.</p>
+                            <p>Use #team-formation and.</p>
+                            <a href="https://discord.gg/8YpqtHzU" class="discord-link">Join Discord</a>
+                          </div>
+                    </div>
+                </div>
+
+
+                <div class="quick-link-card" onclick="toggleQuickLink(this)">
+                    <div class="quick-link-inner">
+                        <div class="quick-link-front">
+                            <div class="quick-link-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Team Formation</h3>
+                            <p>Find your team</p>
+                            <div class="flip-instruction">Click to flip</div>
+                        </div>
+                        <div class="quick-link-back">
+                            <h3>Team Formation</h3>
+                            <p>Find teammates by skills: BCI, AI, Design, Dev.</p>
+                            <p>Organizers can match you onsite.</p>
+                          </div>
+                          
+                    </div>
+                </div>
+
+                <div class="quick-link-card" onclick="toggleQuickLink(this)">
+                    <div class="quick-link-inner">
+                        <div class="quick-link-front">
+                            <div class="quick-link-icon">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <h3>API Keys</h3>
+                            <p>Get help here</p>
+                            <div class="flip-instruction">Click to flip</div>
+                        </div>
+                        <div class="quick-link-back">
+                            <h3>Help Desk</h3>
+                            <p>API Key Allocation & Support.</p>
+                            <p>At entrance. Open all day.</p>
+                          </div>
+                    </div>
+                </div>
+
+                <div class="quick-link-card" onclick="toggleQuickLink(this)">
+                    <div class="quick-link-inner">
+                        <div class="quick-link-front">
+                            <div class="quick-link-icon">
+                                <i class="fas fa-wifi"></i>
+                            </div>
+                            <h3>WiFi Information</h3>
+                            <p>Network details</p>
+                            <div class="flip-instruction">Click to flip</div>
+                        </div>
+                        <div class="quick-link-back">
+                            <h3>WiFi Information</h3>
+                            <p>Network: Zoho_Guest | Password at registration.</p>
+                            <p>Hotspots allowed if needed.</p>
+                          </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Help Section -->
+    <section class="help-section">
+        <div class="container">
+            <div class="help-content">
+                <h2><i class="fas fa-question-circle"></i> Need Help?</h2>
+                <p>If you need assistance with technical issues, have questions about your track, or need any other support during the hackathon, please flag any organizer wearing a blue lanyard. They're here to help!</p>
+                <div class="help-info">
+                    <div class="help-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Organizers can be found throughout the venue</span>
+                    </div>
+                    <div class="help-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Support available throughout the entire event</span>
+                    </div>
+                    <div class="help-item">
+                        <i class="fas fa-users"></i>
+                        <span>Technical experts available for each track</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>CogniHacks</span>
+                    </div>
+                    <p>Building the future of brain-computer interfaces through innovation, collaboration, and cutting-edge technology.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#tracks">Tracks</a></li>
+                        <li><a href="#schedule">Schedule</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> info@cognihacks.com</li>
+                    
+                        <li><i class="fas fa-map-marker-alt"></i> Pleasanton, CA</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://discord.gg/8YpqtHzU" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="https://www.linkedin.com/company/cognihacks/?viewAsMember=true" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/cognihacks/" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 CogniHacks. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Track accordion functionality
+        function toggleTrack(element) {
+            const isActive = element.classList.contains('active');
+            
+            // Close all tracks
+            document.querySelectorAll('.track-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked track if it wasn't active
+            if (!isActive) {
+                element.classList.add('active');
+            }
+        }
+
+        // Resource opening functionality
+        function openResource(slug) {
+            // Navigate to the resource page
+            window.location.href = `resources/${slug}.html`;
+        }
+
+        function goToLink(url) {
+            window.location.href = url;
+        }
+
+        // Quick link flip card functionality
+        function toggleQuickLink(element) {
+            element.classList.toggle('flipped');
+        }
+
+        // Back to top functionality
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Mobile navigation toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
+                document.getElementById('navToggle').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
